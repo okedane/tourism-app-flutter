@@ -47,6 +47,7 @@ class TourismTextStyles {
     letterSpacing: -1,
   );
 
+  //digunakan di AppBar
   static TextStyle titleLarge = _commonStyle.copyWith(
     fontSize: 22,
     fontWeight: FontWeight.w500,

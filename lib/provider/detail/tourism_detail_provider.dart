@@ -13,23 +13,23 @@ class TourismDetailProvider extends ChangeNotifier {
 
   TourismDetailResultState get resultState => _resultState;
 
- Future<void> fetchTourismDetail(int id) async {
-  try {
-    _resultState = TourismDetailLoadingState();
-    notifyListeners();
+  Future<void> fetchTourismDetail(int id) async {
+    try {
+      _resultState = TourismDetailLoadingState();
+      notifyListeners();
 
-    final result = await _apiServices.getTourismDetail(id);
+      final result = await _apiServices.getTourismDetail(id);
 
-    if (result.error) {
-      _resultState = TourismDetailErrorState(result.message);
-    } else {
-      _resultState = TourismDetailLoadedState(result.place); // Pastikan `place` bukan `places`
+      if (result.error) {
+        _resultState = TourismDetailErrorState(result.message);
+        notifyListeners();
+      } else {
+        _resultState = TourismDetailLoadedState(result.place);
+        notifyListeners();
+      }
+    } on Exception catch (e) {
+      _resultState = TourismDetailErrorState(e.toString());
+      notifyListeners();
     }
-  } on Exception catch (e) {
-    _resultState = TourismDetailErrorState(e.toString());
   }
-
-  notifyListeners();
-}
-
 }

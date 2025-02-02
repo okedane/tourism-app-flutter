@@ -15,14 +15,14 @@ class TourismListResponse {
 
   factory TourismListResponse.fromJson(Map<String, dynamic> json) {
     return TourismListResponse(
-        error: json["error"],
-        message: json["message"],
-        count: json["count"],
-        //cek apakah places null ?
-        places: json["places"] != null
-        // Ya, nilai dari json["places"]!.map((x) akan dikirim ke Tourism.fromJson(x) untuk diubah menjadi objek Tourism.
-            ? List<Tourism>.from(
-                json["places"]!.map((x) => Tourism.fromJson(x)))
-            : <Tourism>[]);
+      error: json["error"],
+      message: json["message"],
+      count: json["count"],
+      //cek apakah places null ?
+      places: json["places"] != null
+          // Ya, nilai dari json["places"]!.map((x) akan dikirim ke Tourism.fromJson(x) untuk diubah menjadi objek Tourism.
+          ? List<Tourism>.from(json["places"]!.map((x) => Tourism.fromJson(x)))
+          : <Tourism>[],
+    );
   }
 }

@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Consumer<TourismListProvider>(
         builder: (context, value, child) {
           return switch (value.resultState) {
-            TourismListLoadedState() => const Center(
+            TourismListLoadingState() => const Center(
                 child: CircularProgressIndicator(),
               ),
             TourismListLoadedState(data: var tourismList) => ListView.builder(

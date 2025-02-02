@@ -25,6 +25,7 @@ class TourismListProvider extends ChangeNotifier {
         notifyListeners();
       } else {
         _resultState = TourismListLoadedState(result.places);
+        notifyListeners();
       }
     } on Exception catch (e) {
       _resultState = TourismListErrorState(e.toString());

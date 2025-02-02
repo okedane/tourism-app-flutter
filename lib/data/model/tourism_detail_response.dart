@@ -15,7 +15,7 @@ class TourismDetailResponse {
     return TourismDetailResponse(
       error: json["error"],
       message: json["message"],
-      place: json["place"],
+      place:Tourism.fromJson(json["place"]),
     );
   }
 }

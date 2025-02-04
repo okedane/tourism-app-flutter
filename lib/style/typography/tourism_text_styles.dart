@@ -5,6 +5,7 @@ class TourismTextStyles {
     fontFamily: 'IBMPlexSansCondensed',
   );
 
+  // Digunakan untuk teks yang sangat besar seperti judul utama aplikasi atau slogan
   static TextStyle displayLarge = _commonStyle.copyWith(
     fontSize: 57,
     fontWeight: FontWeight.bold,
@@ -26,6 +27,7 @@ class TourismTextStyles {
     letterSpacing: -1,
   );
 
+  // Biasanya untuk judul di dalam halaman, seperti nama kategori atau header di halaman utama.
   static TextStyle headlineLarge = _commonStyle.copyWith(
     fontSize: 32,
     fontWeight: FontWeight.w600,
@@ -54,7 +56,7 @@ class TourismTextStyles {
     height: 1.2,
     letterSpacing: 1.2,
   );
-
+  //  Bisa digunakan untuk subjudul atau informasi tambahan di dalam AppBar.
   static TextStyle titleMedium = _commonStyle.copyWith(
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -69,6 +71,7 @@ class TourismTextStyles {
     letterSpacing: 1.2,
   );
 
+  // Dipakai untuk teks utama dalam konten, misalnya artikel, deskripsi produk, atau teks paragraf biasa.
   static TextStyle bodyLargeBold = _commonStyle.copyWith(
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -87,6 +90,7 @@ class TourismTextStyles {
     height: 1.56,
   );
 
+  // Biasanya untuk tulisan kecil, seperti label pada tombol, informasi tambahan di bawah form, atau teks di dalam badge.
   static TextStyle labelLarge = _commonStyle.copyWith(
     fontSize: 14,
     fontWeight: FontWeight.w300,

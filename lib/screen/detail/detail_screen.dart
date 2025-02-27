@@ -39,37 +39,38 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Tourism Detail"),
-          actions: [
-            ChangeNotifierProvider(
-              create: (context) => BookmarkIconProvider(),
-              child: Consumer<TourismDetailProvider>(
-                builder: (context, value, child) {
-                  return switch (value.resultState) {
-                    TourismDetailLoadedState(data: var tourism) =>
-                      BookmarkIconWidget(tourism: tourism),
-                    _ => const SizedBox(),
-                  };
-                },
-              ),
+      appBar: AppBar(
+        title: const Text("Tourism Detail"),
+        actions: [
+          ChangeNotifierProvider(
+            create: (context) => BookmarkIconProvider(),
+            child: Consumer<TourismDetailProvider>(
+              builder: (context, value, child) {
+                return switch (value.resultState) {
+                  TourismDetailLoadedState(data: var tourism) =>
+                    BookmarkIconWidget(tourism: tourism),
+                  _ => const SizedBox(),
+                };
+              },
             ),
-          ],
-        ),
-        body: Consumer<TourismDetailProvider>(
-          builder: (context, value, child) {
-            return switch (value.resultState) {
-              TourismDetailLoadingState() => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              TourismDetailLoadedState(data: var tourism) =>
-                BodyOfDetailScreenWidget(tourism: tourism),
-              TourismDetailErrorState(error: var message) => Center(
-                  child: Text(message),
-                ),
-              _ => const SizedBox(),
-            };
-          },
-        ));
+          ),
+        ],
+      ),
+      body: Consumer<TourismDetailProvider>(
+        builder: (context, value, child) {
+          return switch (value.resultState) {
+            TourismDetailLoadingState() => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            TourismDetailLoadedState(data: var tourism) =>
+              BodyOfDetailScreenWidget(tourism: tourism),
+            TourismDetailErrorState(error: var message) => Center(
+                child: Text(message),
+              ),
+            _ => const SizedBox(),
+          };
+        },
+      ),
+    );
   }
 }

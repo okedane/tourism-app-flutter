@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourism_app/data/api/api_service.dart';
-import 'package:tourism_app/provider/static/tourism_list_result_state.dart';
+import 'package:tourism_app/static/tourism_list_result_state.dart';
 
 class TourismListProvider extends ChangeNotifier {
   final ApiServices _apiServices;
